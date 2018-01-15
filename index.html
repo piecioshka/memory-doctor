@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="memory-doctor">
+<head>
+    <meta charset="utf-8">
+    <title>memory-doctor</title>
+    <link rel="stylesheet" href="styles/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/vendors/bootstrap-theme.min.css">
+</head>
+<body ng-controller="MainController">
+    <div class="container">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                Memory doctor <span class="badge">{{ datetime | date:'HH:mm:ss' }}</span>
+            </div>
+            <div class="panel-body">Print some useful information about environment.</div>
+
+            <ul class="list-group">
+                <li ng-repeat="item in list" class="list-group-item">
+                    <p>
+                        <span class="label label-default label-{{ item.type }}">{{ item.label }}</span>
+                        {{ item.value | formatSize }}
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="scripts/vendors/angular/angular.js"></script>
+    <script src="scripts/core/app.js"></script>
+    <script src="scripts/core/controller/main.js"></script>
+    <script src="scripts/core/filter/format-size.js"></script>
+</body>
+</html>
